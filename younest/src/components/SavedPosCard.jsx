@@ -69,7 +69,7 @@ const SavedPosCard = ({p}) => {
 
         {/* Check if there's at least one image */}
         {images.length > 0 ? (
-            <img src={"http://127.0.0.1:8000"+images[currentImageIndex]?.image} alt={p.name} />
+            <img src={"https://13.60.222.132"+images[currentImageIndex]?.image} alt={p.name} />
         ) : (
             <img src="default-image.jpg" alt="default" /> // Fallback if no images
         )}
