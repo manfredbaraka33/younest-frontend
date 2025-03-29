@@ -3,7 +3,7 @@ import axiosService from "../helpers/axios"; // Make sure axiosService handles a
 import axios from "axios";
 
 // Your base URL for API calls
-const baseURL = "http://localhost:8000/api";
+const baseURL = "https://13.60.222.132/api/";
 
 function useUserActions() {
   const navigate = useNavigate();
