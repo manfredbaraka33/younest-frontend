@@ -77,6 +77,7 @@ const AddProduct = ({ shop }) => {
       setPreviewUrls([]);
       setLoading(false);
       console.log('Product created successfully:', response.data);
+      window.alert("Product created successfully");
       navigate(`/shop/${shop.id}`);
 
     } catch (error) {
