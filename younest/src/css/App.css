@@ -398,6 +398,6 @@ table td{
 
 .recommended-product-card {
   flex-shrink: 0; /* Prevents the cards from shrinking */
-  width: 300px;
+  min-width: 340px;
 }
 
