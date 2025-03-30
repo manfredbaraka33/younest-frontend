@@ -16,6 +16,7 @@ const AddProduct = ({ shop }) => {
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState(null);
   const navigate =useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -36,7 +37,7 @@ const AddProduct = ({ shop }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const data = new FormData();
     Object.keys(formData).forEach((key) => {
       if (key === 'shop') {
@@ -74,11 +75,13 @@ const AddProduct = ({ shop }) => {
       });
       setImages([]);
       setPreviewUrls([]);
+      setLoading(false);
       console.log('Product created successfully:', response.data);
       navigate(`/shop/${shop.id}`);
 
     } catch (error) {
       setSuccess(false);
+      setLoading(false);
       setErrors(error);
       console.error('Product creation failed:', error);
     }
@@ -197,7 +200,7 @@ const AddProduct = ({ shop }) => {
         </div>
 
         <button type="submit" className="btn btn-outline-primary my-3">
-          Add
+          {loading ? <Spinner as="span" animation="border" size="sm" /> : "Add"}
         </button>
         {errors && (
           <div className="alert alert-danger">
