@@ -16,7 +16,7 @@ const MyShops = () => {
     const fetchShops = async () => {
       if (user && user.access) { // Ensure the access token is used
         try {
-          const response = await axios.get('http://localhost:8000/api/user-shops/', {
+          const response = await axios.get('https://younestapi.publicvm.com/api/user-shops/', {
             headers: {
               'Authorization': `Bearer ${user.access}` // Use the access token here
             }
