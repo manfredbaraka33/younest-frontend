@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { followUnfollowShop, getData, patchData } from "../helpers/axios"; 
 import { FaArrowLeft } from "react-icons/fa";
 import AddProduct from "./AddProduct"; // Import AddProduct component
+import { useNavigate } from "react-router-dom";
 
 const ShopDetails = () => {
   const { user } = useAuth();
@@ -18,7 +19,7 @@ const ShopDetails = () => {
   const [isFollowing, setIsFollowing] = useState(false);
   const [followersCount, setFollowersCount] = useState(0);
   const [saving, setSaving] = useState(false);
-
+  const nav = useNavigate();
   const [editData, setEditData] = useState({ name: "", location: "", contact: "", logo: null });
   const [logoPreview, setLogoPreview] = useState("");
   
@@ -98,6 +99,8 @@ const ShopDetails = () => {
     }
   };
 
+  const handleToDb=()=> nav(`/db/${shopId}`);
+
   if (error) return <div>{error}</div>;
   if (loadingShop || !shop) return <div>Loading shop details...</div>;
   if (loadingPos) return <div>Loading products...</div>;
@@ -144,6 +147,7 @@ const ShopDetails = () => {
                 <button className="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editShopModal">
                   Edit details
                 </button>
+                <button className="btn btn-outline-primary" onClick={handleToDb}>Analytics</button>
               </div>
             )}
           </div>
