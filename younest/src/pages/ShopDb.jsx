@@ -124,7 +124,7 @@ const ShopDb = () => {
            <div className="col">  
                <h4>Product Categories by Views</h4>
             <div className="charts pie-chart">
-                <Pie data={pieChartData} options={barChartOptions} height={350} />
+                <Pie data={pieChartData} options={barChartOptions} height={400} />
             </div>
             </div>
            </div>
