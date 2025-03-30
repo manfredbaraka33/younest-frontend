@@ -112,7 +112,7 @@ const ShopDb = () => {
             <div className="col">
             <div className="charts bar-chart">
                 <h4>Top Products (Views & Saves)</h4>
-                <Bar data={horizontalBarChartData} options={{ responsive: true }} />
+                <Bar data={horizontalBarChartData} options={barChartOptions} height={400}  />
             </div>
             </div>
            </div>
@@ -124,7 +124,7 @@ const ShopDb = () => {
            <div className="col">  
                <h4>Product Categories by Views</h4>
             <div className="charts pie-chart">
-                <Pie data={pieChartData} options={barChartOptions} height={400} />
+                <Pie data={pieChartData} options={{ responsive: true }}  />
             </div>
             </div>
            </div>
