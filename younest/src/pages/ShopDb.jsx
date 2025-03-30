@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import axiosService from '../helpers/axios';
 import { Bar, Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
-
+  
 // Register necessary chart elements
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
 
