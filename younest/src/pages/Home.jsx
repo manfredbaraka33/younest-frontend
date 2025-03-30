@@ -30,7 +30,7 @@ const Home = () => {
      loadpos();
    }, []);
 
-   const filters = ['All', 'electronics','clothing','food','houseware','body care','banking','mobile money','recreation','healthcare','Other'];
+   const filters = ['All', 'electronics','clothing','food','houseware','body care','banking','mobile money','recreation','healthcare','Other','other'];
    const [flt,setFlt] = useState('All')
    const [selectedFilter, setSelectedFilter] = useState('All');
 
