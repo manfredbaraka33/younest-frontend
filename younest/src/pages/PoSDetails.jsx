@@ -40,7 +40,7 @@ const PoSDetails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const getDetails = async () => {
-    const response = await fetch(`http://localhost:8000/api/pos/${posId}/`);
+    const response = await fetch(`https://13.60.222.132/api/pos/${posId}/`);
     const data = await response.json();
     return data;
   };
