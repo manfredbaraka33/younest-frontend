@@ -110,8 +110,8 @@ const ShopDb = () => {
            <div className="container my-3">
            <div className="row">
            <div className="col">  
+               <h4>Product Categories by Views</h4>
             <div className="charts pie-chart">
-                <h4>Product Categories by Views</h4>
                 <Pie data={pieChartData} options={{ responsive: true }} />
             </div>
             </div>
