@@ -42,10 +42,10 @@ const NotificationBell = () => {
   };
 
     // Function to handle the view event
-  const handleProductClick = async () => {
+  const handleProductClick = async (id) => {
     try {
       // Call your endpoint to increment view count
-      await axiosService.post(`/product/${p.id}/increment-view/`);
+      await axiosService.post(`/product/${id}/increment-view/`);
       // Optionally, navigate to product detail or update UI accordingly
       console.log("View count incremented");
     } catch (error) {
