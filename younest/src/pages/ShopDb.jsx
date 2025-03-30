@@ -74,15 +74,15 @@ const ShopDb = () => {
             {kpis && (
                 <center>
                     <div className="kpis row">
-                    <div className='col-sm-11 col-md-6 col-lg-3'>
+                    <div className='col-sm-11 col-md-6 col-lg-3 my-2'>
                        <h2> {kpis.total_followers}</h2>
                             <span>Followers</span>
                     </div>
-                    <div className='col-sm-11 col-md-6 col-lg-3'>
+                    <div className='col-sm-11 col-md-6 col-lg-3 my-2'>
                        <h2> {kpis.total_views}</h2>
                          <span>Total views</span>
                     </div>
-                    <div className='col-sm-11 col-md-6 col-lg-3'>
+                    <div className='col-sm-11 col-md-6 col-lg-3 my-2'>
                        <h2> {kpis.total_saves}</h2>
                         <span>Total saves</span>
                         </div> 
@@ -98,7 +98,7 @@ const ShopDb = () => {
            <div className="container">
            <div className="row">
             <div className="col">
-            <div className="charts">
+            <div className="charts bar-chart">
                 <h4>Top Products (Views & Saves)</h4>
                 <Bar data={horizontalBarChartData} options={{ responsive: true }} />
             </div>
