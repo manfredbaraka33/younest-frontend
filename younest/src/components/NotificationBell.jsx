@@ -96,7 +96,7 @@ const NotificationBell = () => {
                 }
 
                 {(notification.notification_type === "product") && (
-                  <Link to={`/pos/${notification?.related_id}`} onClick={() => { toggleModal(); handleProductClick(); }}>
+                  <Link to={`/pos/${notification?.related_id}`} onClick={() => { toggleModal(); handleProductClick(notification.related_id); }}>
                     {notification.read ? (
                       <div className='read-notification'>
                         <p>{notification.message}</p>
