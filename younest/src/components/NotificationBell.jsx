@@ -4,6 +4,7 @@ import { getNotifications, markAllNotificationsAsRead } from '../helpers/axios';
 import { useAuth } from '../contexts/AuthContext';
 import TimeAgo from 'timeago-react';
 import { Link } from 'react-router-dom';
+import axiosService from "../helpers/axios";
 
 const NotificationBell = () => {
   const { user } = useAuth();
@@ -38,6 +39,18 @@ const NotificationBell = () => {
     }
 
     setIsModalOpen(!isModalOpen);
+  };
+
+    // Function to handle the view event
+  const handleProductClick = async () => {
+    try {
+      // Call your endpoint to increment view count
+      await axiosService.post(`/product/${p.id}/increment-view/`);
+      // Optionally, navigate to product detail or update UI accordingly
+      console.log("View count incremented");
+    } catch (error) {
+      console.error("Failed to increment view count", error);
+    }
   };
 
   return (
@@ -83,7 +96,7 @@ const NotificationBell = () => {
                 }
 
                 {(notification.notification_type === "product") && (
-                  <Link to={`/pos/${notification?.related_id}`} onClick={toggleModal}>
+                  <Link to={`/pos/${notification?.related_id}`} onClick={toggleModal,handleProductClick}>
                     {notification.read ? (
                       <div className='read-notification'>
                         <p>{notification.message}</p>
