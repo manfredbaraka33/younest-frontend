@@ -34,7 +34,7 @@ function App() {
    const toggleSidebar = () => {
      setIsSidebarOpen(prevState => !prevState);
    };
-
+ 
   return (
     <AuthProvider>
       <NavBar setIsSidebarOpen={setIsSidebarOpen} toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} />
