@@ -1,6 +1,6 @@
 
 export const getProductsOrServices = async () => {
-  const response = await fetch("https://13.60.222.132/api/fetch_all_pos/");
+  const response = await fetch("https://younestapi.publicvm.com/api/fetch_all_pos/");
   const data = await response.json();
   console.log(data.products);
   return data.products;
