@@ -4,7 +4,7 @@ import { getAccessToken, getRefreshToken, getUser } from "../hooks/user.actions"
 
 // Create an Axios instance with default settings
 const axiosService = axios.create({
-  baseURL: "https://13.60.222.132/api", // Update with your API's base URL
+  baseURL: "https://younestapi.publicvm.com/api", // Update with your API's base URL
   headers: {
     "Content-Type": "multipart/form-data",
   },
@@ -28,7 +28,7 @@ const refreshAuthLogic = async (failedRequest) => {
         refresh: getRefreshToken(),
       },
       {
-        baseURL: "https://13.60.222.132/api", // Same API base URL
+        baseURL: "https://younestapi.publicvm.com/api", // Same API base URL
       }
     );
 
