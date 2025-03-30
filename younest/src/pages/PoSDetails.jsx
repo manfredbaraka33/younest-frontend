@@ -279,10 +279,10 @@ const PoSDetails = () => {
           <ProductReviews product={product} />
           </div>
 
-            <div className="container-fluid recomendation-container my-2 p-3">
+            <div className="container-fluid recomendation-container my-2 py-2">
               <h2>You might also like</h2>
 
-              <div className="recommended-products">
+              <div className="container-fluid recommended-products">
                 {recommendedProducts.length > 0 ? (
                   recommendedProducts.map((recommendedProduct) => (
                     <div className="recommended-product-card" key={recommendedProduct.id}>
