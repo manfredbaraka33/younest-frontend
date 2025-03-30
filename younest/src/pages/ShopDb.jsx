@@ -7,7 +7,7 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 // Register necessary chart elements
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
 
-const ShopDb = () => {
+const ShopDb = () => { 
     const { shopId } = useParams();
     const [shopData, setShopData] = useState(null);
     const [error, setError] = useState(null);
