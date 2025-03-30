@@ -7,7 +7,7 @@ export const getProductsOrServices = async () => {
 };
 
 export const getShops = async () => {
-  const response = await fetch("https://13.60.222.132/api/shops/");
+  const response = await fetch("https://younestapi.publicvm.com/api/shops/");
   const data = await response.json();
   console.log(data.results);
   return data.results;
@@ -15,7 +15,7 @@ export const getShops = async () => {
 
 
 export const getFosSale = async () => {
-  const response = await fetch("https://13.60.222.132/api/forsale2/");
+  const response = await fetch("https://younestapi.publicvm.com/api/forsale2/");
   const data = await response.json();
   console.log(data.products);
   return data.products;
