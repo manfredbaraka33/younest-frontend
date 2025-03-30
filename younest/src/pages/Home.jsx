@@ -36,7 +36,7 @@ const Home = () => {
 
    const handleFilterSelect = (filter) => {
     setSelectedFilter(filter);  // Update active filter
-    fetch(`http://localhost:8000/api/filter-products/?category=${filter}`)
+    fetch(`https://13.60.222.132/api/filter-products/?category=${filter}`)
         .then((response) => response.json())
         .then((data) => 
         {
@@ -73,7 +73,7 @@ const handleSearch = () => {
   setLen(true);
   setSelectedFilter('All')
   if (searchQuery.trim() !== "") {
-    fetch(`http://localhost:8000/api/search/?query=${searchQuery}`)
+    fetch(`https://13.60.222.132/api/search/?query=${searchQuery}`)
       .then((response) => response.json())
       .then((data) => {
         // Updating the state with the search results
