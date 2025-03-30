@@ -59,7 +59,7 @@ function App() {
           <Route path="/developer" element={<Developer />}/>
           <Route path="/change_password" element={<ChangePassword />} />
           <Route path="/edit_profile" element={<EditProfile />} />
-          <Route path="/db/:shopId" element={<ShopDb />} />
+          <Route path="/db/:shopId" element={<ShopDb />} /> 
         </Routes>
       </main>
     </AuthProvider>
