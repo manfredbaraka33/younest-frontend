@@ -110,9 +110,9 @@ const ShopDb = () => {
            <div className="container">
            <div className="row">
             <div className="col">
-            <div className="charts bar-chart">
+            <div className="charts  style={{ height: '250px', maxHeight: '50vh' }}>
                 <h4>Top Products (Views & Saves)</h4>
-                <Bar data={horizontalBarChartData} options={barChartOptions} height={300}  />
+                <Bar data={horizontalBarChartData} options={barChartOptions} />
             </div>
             </div>
            </div>
