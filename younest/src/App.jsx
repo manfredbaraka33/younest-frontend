@@ -24,6 +24,7 @@ import Profile2 from "./pages/Profile2";
 import Developer from "./pages/Developer";
 import ChangePassword from "./pages/ChangePassword";
 import EditProfile from "./pages/EditProfile";
+import ShopDb from "./pages/ShopDb";
 
 function App() {
 
@@ -58,6 +59,7 @@ function App() {
           <Route path="/developer" element={<Developer />}/>
           <Route path="/change_password" element={<ChangePassword />} />
           <Route path="/edit_profile" element={<EditProfile />} />
+          <Route path="/db/:shopId" element={<ShopDb />} />
         </Routes>
       </main>
     </AuthProvider>
