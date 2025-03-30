@@ -36,7 +36,7 @@ const Home = () => {
 
    const handleFilterSelect = (filter) => {
     setSelectedFilter(filter);  // Update active filter
-    fetch(`https://13.60.222.132/api/filter-products/?category=${filter}`)
+    fetch(`https://younestapi.publicvm.com/api/filter-products/?category=${filter}`)
         .then((response) => response.json())
         .then((data) => 
         {
