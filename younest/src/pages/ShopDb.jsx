@@ -47,6 +47,18 @@ const ShopDb = () => {
         ],
     };
 
+
+        const barChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false, // Allows custom height
+        scales: {
+            y: {
+                beginAtZero: true,
+            },
+        },
+    };
+
+
     // Data for Pie Chart (Product Categories by Views)
     const pieChartData = {
         labels: categoryViews?.map(category => category.category) || [],
@@ -112,7 +124,7 @@ const ShopDb = () => {
            <div className="col">  
                <h4>Product Categories by Views</h4>
             <div className="charts pie-chart">
-                <Pie data={pieChartData} options={{ responsive: true }} />
+                <Pie data={pieChartData} options={barChartOptions} height={300} />
             </div>
             </div>
            </div>
