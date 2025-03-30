@@ -57,7 +57,11 @@ const ShopDb = () => {
             },
         },
     };
-
+          const piChartOptions = {
+        responsive: true,
+        maintainAspectRatio: false, // Allows custom height
+        },
+    };
 
     // Data for Pie Chart (Product Categories by Views)
     const pieChartData = {
@@ -107,7 +111,7 @@ const ShopDb = () => {
            
            <center>
 
-           <div className="container">
+           <div className="container my-3">
            <div className="row">
             <div className="col">
             <div className="charts"  style={{ height: '250px', maxHeight: '50vh' }}>
@@ -118,13 +122,13 @@ const ShopDb = () => {
            </div>
            </div>
 
-
+         
            <div className="container my-3">
            <div className="row">
            <div className="col">  
                <h4>Product Categories by Views</h4>
-            <div className="charts pie-chart">
-                <Pie data={pieChartData} options={{ responsive: true }}  />
+            <div className="charts" style={{ height: '250px', maxHeight: '50vh' }}>
+                <Pie data={pieChartData} options={piChartOptions}  />
             </div>
             </div>
            </div>
