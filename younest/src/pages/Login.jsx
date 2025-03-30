@@ -19,10 +19,10 @@ const Login = () => {
     setError(null);
     setLoading(true); // Start loading
     try {
-      const response = await axios.post("https://13.60.222.132/api/token/", { username, password });
+      const response = await axios.post("https://younestapi.publicvm.com/api/token/", { username, password });
       const { access, refresh } = response.data;
 
-      const userDetailsResponse = await axios.get("https://13.60.222.132/api/user/details/", {
+      const userDetailsResponse = await axios.get("https://younestapi.publicvm.com/api/user/details/", {
         headers: { Authorization: `Bearer ${access}` },
       });
 
