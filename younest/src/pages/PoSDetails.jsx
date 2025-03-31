@@ -106,10 +106,8 @@ const PoSDetails = () => {
 
        
   
-    const handleUpdate = async () => {
+      const handleUpdate = async () => {
       const formData = new FormData();
-    
-     
       formData.append("name", product.name);
       formData.append("price", product.price);
       formData.append("description", product.description);
@@ -188,10 +186,10 @@ const PoSDetails = () => {
 
   return (
     <div className="container-fluid mt-5 p-2">
-      <Link to="/"><FaArrowLeft className='mb-2'/></Link>
+      
       {product && (
         <>
-          <h6>
+          <h6> <Link to="/"><FaArrowLeft className='mb-2'/></Link>
             {product.name} by{' '}
             <Link className="" style={{ textDecoration: 'none' }} to={`/shop/${product.shop?.id}`}>
               {product.shop?.name || ''}
