@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
@@ -15,9 +13,9 @@ const MyShops = () => {
  
 
   useEffect(() => {
-    const fetchShops = async () => {
+    const fetchShops = () => {
         try {
-            const response = await getData('/user-shops/');
+            const response = getData('/user-shops/');
             setShops(response.data);
         } catch (error) {
             console.error('Error fetching shops:', error);
