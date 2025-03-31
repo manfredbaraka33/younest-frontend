@@ -25,15 +25,17 @@
   z-index: 1;
 /*   height: 250px;
   width: 250px; */
+ 
+  width: 100%;
+  height: 100%;
+  
+}
+
+.pos-card2 img{
   object-fit: cover; /* Ensures the image doesn't distort */
   width: 100%;
   height: 100%;
   object-position: center; /* Centers the image inside the container */
-}
-
-.pos-card2 img{
-  height: 250px;
-  width: 250px;
 }
 
 
