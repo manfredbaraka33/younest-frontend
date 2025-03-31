@@ -85,10 +85,10 @@ const ShopDb = () => {
 
      // Data for Pie Chart (Product Categories by Views)
     const pieChartData2 = {
-        labels: categoryViews?.map(category => category.category) || [],
+        labels: categorySaves?.map(category => category.category) || [],
         datasets: [
             {
-                data: categoryViews?.map(category => category.total_saves) || [],
+                data: categorySaves?.map(category => category.total_saves) || [],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.5)',
                     'rgba(54, 162, 235, 0.5)',
