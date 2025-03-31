@@ -58,7 +58,6 @@ const EditProfile = () => {
         ...user,
         username,
         email,
-        bio,
         profile_image: profile_image instanceof File ? URL.createObjectURL(profile_image) : user.profile_image,
       });
   
