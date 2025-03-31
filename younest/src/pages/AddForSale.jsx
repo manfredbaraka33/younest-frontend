@@ -16,7 +16,7 @@ const AddForSale = () => {
   });
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState(null);
-  
+  const [loading, setLoading] = useState(false);
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -37,7 +37,7 @@ const AddForSale = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const data = new FormData();
     Object.keys(formData).forEach((key) => {
       if (key === 'seller') {
@@ -75,9 +75,12 @@ const AddForSale = () => {
       });
       setImages([]);
       setPreviewUrls([]);
+      setLoading(false);
+      setSuccess(true);
       console.log('Product created successfully:', response.data);
     } catch (error) {
       setSuccess(false);
+      setLoading(false);
       setErrors(error);
       console.error('Product creation failed:', error);
     }
@@ -86,17 +89,7 @@ const AddForSale = () => {
   return (
     <div className="container mt-5">
       <form onSubmit={handleSubmit} className="form-control">
-        {errors && (
-          <div className="alert alert-danger">
-            <div>An error occurred</div>
-          </div>
-        )}
-        {success && (
-          <div className="alert alert-success">
-            Congratulations! Your product has been added.
-          </div>
-        )}
-
+        
         <label htmlFor="name">Name:</label>
         <input
           type="text"
@@ -171,10 +164,38 @@ const AddForSale = () => {
             />
           ))}
         </div>
+        
 
         <button type="submit" className="btn btn-outline-primary my-3">
-          Add
+          {loading ? (
+            <div className="d-flex align-items-center">
+              <div className="spinner-border spinner-border-sm" role="status">
+                <span className="sr-only"></span>
+              </div>
+              <span className="ms-2">Creating product for sale...</span>
+            </div>
+          ) : (
+            'Add'
+          )}
+        
         </button>
+
+         {errors && (
+          <div className="alert alert-danger">
+            <div>Oops! An error occurred. Try tye following to troubleshoot
+            <ol>
+              <li>Make sure images dont exceed <b>five(5)</b></li>
+              <li>Try to log out and log in again</li>
+            </ol>
+            </div>
+          </div>
+        )}
+
+         {success && (
+          <div className="alert alert-success">
+            Congratulations! Your product has been added.
+          </div>
+        )}
       </form>
     </div>
   );
