@@ -7,7 +7,6 @@ const EditProfile = () => {
   const { user, updateUserState } = useAuth(); // Get user from context
   const [username, setUsername] = useState(user?.username || '');
   const [email, setEmail] = useState(user?.email || '');
-  const [bio, setBio] = useState(user?.bio || '');
   const [profile_image, setProfilePic] = useState(user?.profile_image || null);  // Store selected profile picture file
   const [preview, setPreview] = useState(user?.profile_image || ''); // For previewing the selected image
   const [loading, setLoading] = useState(false);
@@ -40,8 +39,7 @@ const EditProfile = () => {
       const formData = new FormData();
       formData.append('username', username);
       formData.append('email', email);
-      formData.append('bio', bio);
-  
+     
       // Append the image ONLY if a new file is selected
       if (profile_image && profile_image instanceof File) {
         formData.append('profile_image', profile_image);
@@ -107,17 +105,6 @@ const EditProfile = () => {
           />
         </div>
 
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">Bio:</label>
-          <input
-            type="bio"
-            className="form-control"
-            id="bio"
-            value={bio}
-            onChange={(e) => setBio(e.target.value)}
-            required
-          />
-        </div>
 
 
         <div className="mb-3">
