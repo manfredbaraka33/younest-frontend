@@ -11,24 +11,24 @@ const MyShops = () => {
   const navigate = useNavigate();
   
  
-
-  useEffect(() => {
-    const fetchShops = () => {
-        try {
-            const response = getData('/user-shops/');
-            setShops(response.data);
-        } catch (error) {
-            console.error('Error fetching shops:', error);
-        }
-    };
-
-    if (user) {  // Ensure user is defined before making the request
-        fetchShops();
+useEffect(() => {
+  const fetchShops = async () => {
+    try {
+      const response = await getData('/user-shops/'); // Await the API call
+      console.log(response);
+      setShops(response); // response.data is not needed since getData already returns response.data
+    } catch (error) {
+      console.error('Error fetching shops:', error);
     }
-}, [user?.id]);  // Use a stable dependency to avoid unnecessary re-renders
+  };
+
+  if (user?.id) { // Ensure user is defined and has an ID before making the request
+    fetchShops();
+  }
+}, [user?.id]); // Depend on user ID to fetch only when it changes
 
 
-  console.log(shops)
+  console.log("Here  are the shops",shops)
 
   
   return (
@@ -59,8 +59,8 @@ const MyShops = () => {
             </Link>
           ))
         ) : (
-          <div><p>You have no Bussineses yet. Click <Link to="/addshop">here</Link> to add a business.</p>
-          <p>If you have created business still this is showing try to log out and <Link to="/login">login</Link> again</p>
+          <div classname="mt-3"><p >You have no Bussineses yet. Click <Link to="/addshop">here</Link> to add a business.</p>
+          <p style={{color:"red"}}>If you have created business still this is showing try to log out and <Link to="/login">login</Link> again</p>
           </div>
         )}
       </div>
