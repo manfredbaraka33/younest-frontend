@@ -8,7 +8,7 @@ const AddForSale = () => {
   const {user}=useAuth();
   const [formData, setFormData] = useState({
     seller:user,
-    name: '',
+    name: '',   
     price: 0,    
     description: '',
     location: '',
