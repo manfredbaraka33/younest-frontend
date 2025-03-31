@@ -61,7 +61,7 @@ const Home = () => {
                       setLoading(false);
            
            setError(`Failed to load items for ${filter}`);        
-   }
+   });
 };
 
 const [searchQuery, setSearchQuery] = useState("");
@@ -94,7 +94,7 @@ const handleSearch = () => {
       .catch((error) =>{
          setLoading(false);
          setError(`Failed to search items for ${searchQuery}`);        
-  }
+  });
   }
 };
 
