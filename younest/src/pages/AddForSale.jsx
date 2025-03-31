@@ -9,7 +9,7 @@ const AddForSale = () => {
   const [formData, setFormData] = useState({
     seller:user,
     name: '',   
-    price: 0,    
+    price: 0,     
     description: '',
     location: '',
     contact:'',    
