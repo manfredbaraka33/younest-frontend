@@ -1,4 +1,5 @@
-import { Link,useNavigate,useEffect } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
+import {useEffect} from "react";
 import "../css/Navbar.css";
 import { FaBars } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
