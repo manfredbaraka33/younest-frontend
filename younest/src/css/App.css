@@ -394,12 +394,9 @@ table td{
   overflow-x: auto; /* Allows horizontal scrolling */
   gap: 1rem; /* Adds space between the cards */
   padding-bottom: 20px; /* Optional: Adds space for bottom scrollbar */
+  width:100%; 
 }
 
-.recommended-product-card {
-  flex-shrink: 0; /* Prevents the cards from shrinking */
-  min-width: 340px;
-}
 
 .pie-chart{
    max-width:400px;
