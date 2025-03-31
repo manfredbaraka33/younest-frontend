@@ -19,6 +19,7 @@ const ShopDb = () => {
         // Fetch the shop data when the component mounts
         axiosService.get(`/shop-dashboard/${shopId}/`)
             .then((response) => {
+                 console.log(response);
                 setKpis(response.data.kpis);
                 setTopProducts(response.data.top_products);
                 setCategoryViews(response.data.category_views);
