@@ -14,6 +14,7 @@ const ShopDb = () => {
     const [kpis, setKpis] = useState(null);
     const [topProducts, setTopProducts] = useState(null);
     const [categoryViews, setCategoryViews] = useState(null);
+    const [categorySaves, setCategorySaves] = useState(null); 
 
     useEffect(() => {
         // Fetch the shop data when the component mounts
@@ -23,6 +24,7 @@ const ShopDb = () => {
                 setKpis(response.data.kpis);
                 setTopProducts(response.data.top_products);
                 setCategoryViews(response.data.category_views);
+                setCategorySaves(response.data.category_saves);
                 setShopData(response.data.shop_name); // Store the shop name
             })
             .catch((error) => {
