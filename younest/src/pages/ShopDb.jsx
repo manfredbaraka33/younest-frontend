@@ -16,6 +16,7 @@ const ShopDb = () => {
     const [categoryViews, setCategoryViews] = useState(null);
     const [categorySaves, setCategorySaves] = useState(null); 
 
+     
     useEffect(() => {
         // Fetch the shop data when the component mounts
         axiosService.get(`/shop-dashboard/${shopId}/`)
