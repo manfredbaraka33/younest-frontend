@@ -82,7 +82,7 @@ const ProductReviews = ({ product }) => {
                             }
                         </p>
                         {review.comment.length > 150 && (
-                            <button className='btn btn-outline-dark' onClick={() => toggleReview(review.id)}>
+                            <button className='btn btn-outline-secondary' onClick={() => toggleReview(review.id)}>
                                 {expandedReviewId === review.id ? 'Show Less' : 'Show More'}
                             </button>
                         )}
