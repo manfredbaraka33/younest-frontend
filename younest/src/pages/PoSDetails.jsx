@@ -200,7 +200,7 @@ const PoSDetails = () => {
             <div className="col my-2">
               <center>
               <PoSCard2 p={product} />
-                <small  className="text-muted">Double tap image to enter or exit full-screen mode</small>
+                <small  className="text-info">Double tap image to enter or exit full-screen mode</small>
               </center>
             </div>
             <div className="col my-2">
