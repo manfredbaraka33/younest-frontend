@@ -121,11 +121,13 @@ const handleSearch = () => {
      selectedFilter={selectedFilter}
      />
 
-      {error && <div className="error-message">{error}</div>}
+     
 
-       <div className="row">
+       <div className="container-fluid">
+       {error && <div className="error-message">{error}</div>}
        {loading ? (
-        <div className="loading d-flex align-items-center">
+        <center>
+           <div className="loading d-flex align-items-center p-5 mt-5">
           
               <div className="spinner-border spinner-border-sm" role="status">
                 <span className="sr-only"></span>
@@ -133,17 +135,18 @@ const handleSearch = () => {
               <span className="ms-2">Loading data...</span>
       
         </div>
+        </center>
       ) : (
           !len ? (<div style={{margin:"20px"}}>No results found for {flt}</div>
 
-         ):(<>
+         ):(<div className="row">
             <center><h6 style={{marginTop:"5px"}}>{le && <>{le} Result(s)</>}</h6></center>
             <div className="pos-grid"> 
             {pos?.map((p) => (
               <div className="col" key={p.id}><PoSCard p={p}  /></div>
             ))}
           </div>
-         </>
+         <div/>
           )
         
       )}
