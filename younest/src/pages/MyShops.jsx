@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
 import { Link } from 'react-router-dom';
-import { getData } from '../helpers/axios';
+import { getData,axiosService } from '../helpers/axios';
 import { useNavigate } from 'react-router-dom';
 
 const MyShops = () => {
@@ -14,21 +14,15 @@ const MyShops = () => {
   
   useEffect(() => {
     const fetchShops = async () => {
-      if (user && user.access) { // Ensure the access token is used
+      
         try {
-          const response = await axios.get('https://younestapi.publicvm.com/api/user-shops/', {
-            headers: {
-              'Authorization': `Bearer ${user.access}` // Use the access token here
-            }
-          });
+          const response = await axiosService.get('/user-shops/');
           setShops(response.data);
         } catch (error) {
           console.error('Error fetching shops:', error);
         }
       }
-      else{
-          navigate("/login")
-      }
+     
     };
     fetchShops();
   }, [user]);
@@ -64,7 +58,9 @@ const MyShops = () => {
             </Link>
           ))
         ) : (
-          <div>You have no Bussineses yet. Click <Link to="/addshop">here</Link> to add a business.</div>
+          <div><p>You have no Bussineses yet. Click <Link to="/addshop">here</Link> to add a business.</p>
+          <p>If you have created business still this is showing try to log out and <Link to="/login">login</Link> again</p>
+          </div>
         )}
       </div>
     </div>
