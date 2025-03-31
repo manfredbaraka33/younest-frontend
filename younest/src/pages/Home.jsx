@@ -129,7 +129,7 @@ const handleSearch = () => {
        {error && <div className="error-message">{error}</div>}
        {loading ? (
         <center>
-           <div className="loading d-flex align-items-center p-5 mt-5">
+           <div className="loading  p-5 mt-5">
           
               <div className="spinner-border spinner-border-sm" role="status">
                 <span className="sr-only"></span>
