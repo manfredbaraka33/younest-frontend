@@ -9,10 +9,14 @@ import NotificationBell from "./NotificationBell";
 function NavBar({ toggleSidebar, setIsSidebarOpen }) {
   const { user } = useAuth();
   const nav = useNavigate();
-  if(!user?.profile_image){
-    window.alert("Token Expired login again!");
-    nav("/login");
-  }
+  
+   useEffect(() => {
+    if (!user?.profile_image) {
+      window.alert("Token Expired, login again!");
+      nav("/login");
+    }
+  }, [user, nav]); // Runs only when `user` changes
+
 
   return (
     <nav className="nav-bar">
