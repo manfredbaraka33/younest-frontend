@@ -184,8 +184,9 @@ const AddForSale = () => {
           <div className="alert alert-danger">
             <div>Oops! An error occurred. Try the following to troubleshoot
             <ol>
-              <li>Try to reduce the number of images uploaded</li>
               <li>Try to log out and log in again</li>
+              <li>Try to reduce the number of images uploaded</li>
+              
             </ol>
             </div>
           </div>
