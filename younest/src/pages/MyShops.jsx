@@ -16,7 +16,7 @@ const MyShops = () => {
 useEffect(() => {
   const fetchShops = async () => {
     try {
-      setLoding(true);
+      setLoading(true);
       const response = await getData('/user-shops/'); // Await the API call
       console.log(response);
       setLoading(false);
