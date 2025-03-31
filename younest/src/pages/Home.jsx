@@ -15,7 +15,8 @@ const Home = () => {
    const [loading, setLoading] = useState(false);
    const [len,setLen] = useState(true);
    const [le,setLe] = useState();
-
+   const [searchQuery, setSearchQuery] = useState("");
+   
    useEffect(() => {
      const loadpos = async () => {
        try {
@@ -40,7 +41,8 @@ const Home = () => {
 
    const handleFilterSelect = (filter) => {
     setSelectedFilter(filter);  // Update active filter
-    setPoS([]);  
+    setPoS([]);
+    setSearchQuery("");
     setLoading(true);  
     fetch(`https://younestapi.publicvm.com/api/filter-products/?category=${filter}`)
         .then((response) => response.json())
@@ -66,7 +68,7 @@ const Home = () => {
    });
 };
 
-const [searchQuery, setSearchQuery] = useState("");
+
 
 const handleSearchChange = (e) => {
     setSearchQuery(e.target.value);
