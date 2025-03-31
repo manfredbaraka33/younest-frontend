@@ -12,20 +12,34 @@ const MyShops = () => {
   const { user } = useAuth(); // Access the user from AuthContext
   const navigate = useNavigate();
   
+  // useEffect(() => {
+  //   const fetchShops = async () => {
+      
+  //       try {
+  //         const response = await axiosService.get('/user-shops/');
+  //         setShops(response.data);
+  //       } catch (error) {
+  //         console.error('Error fetching shops:', error);
+  //       }
+  //   };
+  //   fetchShops();
+  // }, [user]);
+
   useEffect(() => {
     const fetchShops = async () => {
-      
         try {
-          const response = await axiosService.get('/user-shops/');
-          setShops(response.data);
+            const response = await axiosService.get('/user-shops/');
+            setShops(response.data);
         } catch (error) {
-          console.error('Error fetching shops:', error);
+            console.error('Error fetching shops:', error);
         }
-      }
-     
     };
-    fetchShops();
-  }, [user]);
+
+    if (user) {  // Ensure user is defined before making the request
+        fetchShops();
+    }
+}, [user?.id]);  // Use a stable dependency to avoid unnecessary re-renders
+
 
   console.log(shops)
 
