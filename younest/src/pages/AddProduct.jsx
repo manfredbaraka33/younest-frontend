@@ -196,7 +196,12 @@ const AddProduct = ({ shop }) => {
 
         {errors && (
           <div className="alert alert-danger">
-            <div>An error occurred. Please try again later.</div>
+            <div>Oops! An error occurred. Try tye following to troubleshoot
+            <ol>
+              <li>Make sure images dont exceed <b>five(5)</b></li>
+              <li>Try to log out and log in again</li>
+            </ol>
+            </div>
           </div>
         )}
 
