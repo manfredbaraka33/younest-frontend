@@ -8,6 +8,7 @@ import { FaSearch } from "react-icons/fa";
 import BackToTopButton from "../components/BackToTopButton";
 
 
+
 const Home = () => {
    const [pos, setPoS] = useState([]);
    const [error, setError] = useState(null);
