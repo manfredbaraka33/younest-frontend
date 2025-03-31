@@ -60,7 +60,7 @@ const ShopDb = () => {
           const piChartOptions = {
         responsive: true,
         maintainAspectRatio: false, // Allows custom height
-        },
+        
     };
 
     // Data for Pie Chart (Product Categories by Views)
