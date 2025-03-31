@@ -12,7 +12,7 @@ function NavBar({ toggleSidebar, setIsSidebarOpen }) {
   const nav = useNavigate();
   
    useEffect(() => {
-    if (!user?.profile_image) {
+    if (user && !user?.profile_image) {
       window.alert("Token Expired, login again!");
       nav("/login");
     }
