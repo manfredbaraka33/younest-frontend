@@ -124,7 +124,7 @@ const handleSearch = () => {
 
      
 
-       <div className="container-fluid">
+       <div className="row">
        {error && <div className="error-message">{error}</div>}
        {loading ? (
         <center>
@@ -140,14 +140,14 @@ const handleSearch = () => {
       ) : (
           !len ? (<div style={{margin:"20px"}}>No results found for {flt}</div>
 
-         ):(<div className="row">
+         ):(<>
             <center><h6 style={{marginTop:"5px"}}>{le && <>{le} Result(s)</>}</h6></center>
             <div className="pos-grid"> 
             {pos?.map((p) => (
               <div className="col" key={p.id}><PoSCard p={p}  /></div>
             ))}
           </div>
-         <div/>
+         </>
           )
         
       )}
