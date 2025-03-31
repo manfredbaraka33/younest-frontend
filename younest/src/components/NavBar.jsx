@@ -9,7 +9,7 @@ import NotificationBell from "./NotificationBell";
 function NavBar({ toggleSidebar, setIsSidebarOpen }) {
   const { user } = useAuth();
   const nav = useNavigate();
-  if(user?.profile_image === null){
+  if(!user?.profile_image){
     window.alert("Token Expired login again!");
     nav("/login");
   }
