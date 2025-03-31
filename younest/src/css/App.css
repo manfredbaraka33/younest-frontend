@@ -381,7 +381,7 @@ table td{
 
 .save-btn{
   color: var(--text-color);
-  background-color: var(--bg-color2);
+  margin-left:3px;
 }
 
 .recomendation-containerx{
