@@ -207,7 +207,7 @@ const PoSDetails = () => {
                 <div className="">
   
                         <table>
-                          <thead className='bg-success'>
+                          <thead className='bg-secondary text-light'>
                             <tr>
                               <th>Item</th>
                               <th>Info</th>
