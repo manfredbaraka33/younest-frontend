@@ -198,7 +198,7 @@ const AddProduct = ({ shop }) => {
           <div className="alert alert-danger">
             <div>Oops! An error occurred. Try the following to troubleshoot
             <ol>
-              <li>Make sure images dont exceed <b>five(5)</b></li>
+              <li>Try to reduce the number of images uploaded</li>
               <li>Try to log out and log in again</li>
             </ol>
             </div>
