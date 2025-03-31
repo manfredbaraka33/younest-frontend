@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,Link } from 'react-router-dom';
 import axiosService from '../helpers/axios';
 import { Bar, Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
@@ -80,13 +80,30 @@ const ShopDb = () => {
         ],
     };
 
+     // Data for Pie Chart (Product Categories by Views)
+    const pieChartData2 = {
+        labels: categoryViews?.map(category => category.category) || [],
+        datasets: [
+            {
+                data: categoryViews?.map(category => category.total_saves) || [],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                ],
+            },
+        ],
+    };
     // Error Handling and Loading State
     if (error) return <div>{error}</div>;
     if (!shopData) return <div>Loading...</div>;
 
     return (
         <div className="container mt-5 p-3">
-            <center><h4 className='bg-primary text-light rounded p-2'>{shopData} Analytics</h4></center>
+             
+            <center><Link to="/shop/${shopId}"><h4 className='bg-primary text-light rounded p-2'>{shopData} Analytics</h4></Link></center>
             {kpis && (
                 <center>
                     <div className="kpis row">
@@ -121,12 +138,12 @@ const ShopDb = () => {
             </div>
            </div>
            </div>
-            <br></br><br></br><br></br><br></br>
+            <br></br><br></br><br></br>
          
            <div className="container my-3">
            <div className="row">
            <div className="col">  
-               <h4>Product Categories by Views</h4>
+               <h4>Product Views by category</h4>
             <div className="charts" style={{ height: '250px', maxHeight: '50vh' }}>
                 <Pie data={pieChartData} options={piChartOptions}  />
             </div>
@@ -134,6 +151,20 @@ const ShopDb = () => {
            </div>
 
            </div>
+
+
+          <div className="container my-3">
+           <div className="row">
+           <div className="col">  
+               <h4>Product Saves by category</h4>
+            <div className="charts" style={{ height: '250px', maxHeight: '50vh' }}>
+                <Pie data={pieChartData2} options={piChartOptions}  />
+            </div>
+            </div>
+           </div>
+
+           </div>
+                
            </center>
 
         </div>
