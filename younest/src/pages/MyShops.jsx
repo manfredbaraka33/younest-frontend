@@ -74,8 +74,10 @@ useEffect(() => {
             </Link>
           ))
         ) : (
-          <div classname="mt-3"><p >You have no Bussineses yet. Click <Link to="/addshop">here</Link> to add a business.</p>
-          <p style={{color:"red"}}>If you have created business still this is showing try to log out and <Link to="/login">login</Link> again</p>
+          <div classname="mt-3">
+            {alert && <>
+              <p >You have no Bussineses yet. Click <Link to="/addshop">here</Link> to add a business.</p>
+              <p style={{color:"red"}}>If you have created business still this is showing try to log out and <Link to="/login">login</Link> again</p></>}
           </div>
         )}
           </>
