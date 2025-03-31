@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
 import { Link } from 'react-router-dom';
-import { getData,axiosService } from '../helpers/axios';
+import { getData} from '../helpers/axios';
 import { useNavigate } from 'react-router-dom';
 
 const MyShops = () => {
@@ -28,7 +28,7 @@ const MyShops = () => {
   useEffect(() => {
     const fetchShops = async () => {
         try {
-            const response = await axiosService.get('/user-shops/');
+            const response = await getData('/user-shops/');
             setShops(response.data);
         } catch (error) {
             console.error('Error fetching shops:', error);
