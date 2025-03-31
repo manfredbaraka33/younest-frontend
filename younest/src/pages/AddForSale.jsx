@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axiosService from '../helpers/axios';
 import { useAuth } from '../contexts/AuthContext';
-   
+        
 const AddForSale = () => {  
   const [images, setImages] = useState([]);
   const [previewUrls, setPreviewUrls] = useState([]);
