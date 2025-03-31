@@ -11,7 +11,7 @@ const AddProduct = ({ shop }) => {
     price: 0,
     description: '',
     category: '',
-    type: '',
+    type: '',     
   });
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState(null);
