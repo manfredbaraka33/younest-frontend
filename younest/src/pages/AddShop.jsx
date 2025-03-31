@@ -57,7 +57,7 @@ const AddShop = () => {
       const shopId = response.data.id;
       navigate(`/shop/${shopId}`); // Redirect to the shop details page with the shop ID
     } catch (err) {
-      setError('Failed to create shop. Please try again.');
+      setError('Failed to create shop. Please try to log out and log in again.');
       console.error(err);
     } finally {
       setLoading(false);
@@ -68,8 +68,7 @@ const AddShop = () => {
     <div className="container mt-5">
       <h2>Create New Shop</h2>
       
-      {error && <div className="alert alert-danger">{error}</div>}
-
+      
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label">Shop Name:</label>
@@ -141,6 +140,9 @@ const AddShop = () => {
             'Create Shop'
           )}
         </button>
+
+        {error && <div className="alert alert-danger">{error}</div>}
+
       </form>
     </div>
   );
