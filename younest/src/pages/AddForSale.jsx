@@ -182,9 +182,9 @@ const AddForSale = () => {
 
          {errors && (
           <div className="alert alert-danger">
-            <div>Oops! An error occurred. Try tye following to troubleshoot
+            <div>Oops! An error occurred. Try the following to troubleshoot
             <ol>
-              <li>Make sure images dont exceed <b>five(5)</b></li>
+              <li>Make sure images don't exceed <b>five(5)</b></li>
               <li>Try to log out and log in again</li>
             </ol>
             </div>
