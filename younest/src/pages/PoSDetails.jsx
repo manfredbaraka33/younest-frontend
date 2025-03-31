@@ -285,9 +285,9 @@ const PoSDetails = () => {
               <div className="container-fluid recommended-products">
                 {recommendedProducts.length > 0 ? (
                   recommendedProducts.map((recommendedProduct) => (
-                    <div className="recommended-product-card" key={recommendedProduct.id}>
-                      <PoSCard p={recommendedProduct} />
-                    </div>
+                    
+                      <PoSCard key={recommendedProduct.id} p={recommendedProduct} />
+                   
                   ))
                 ) : (
                   <p>No recommendations available.</p>
@@ -407,10 +407,6 @@ const PoSDetails = () => {
           </div>
         </div>
       </div>
-
-
-
-
     </div>
   );
 };
