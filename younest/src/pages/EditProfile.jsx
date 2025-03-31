@@ -7,6 +7,7 @@ const EditProfile = () => {
   const { user, updateUserState } = useAuth(); // Get user from context
   const [username, setUsername] = useState(user?.username || '');
   const [email, setEmail] = useState(user?.email || '');
+  const [bio, setBio] = useState(user?.bio || '');
   const [profile_image, setProfilePic] = useState(user?.profile_image || null);  // Store selected profile picture file
   const [preview, setPreview] = useState(user?.profile_image || ''); // For previewing the selected image
   const [loading, setLoading] = useState(false);
@@ -30,45 +31,46 @@ const EditProfile = () => {
     }
   };
 
-  // Handle form submission for profile update
-  const handleSubmit = async (e) => {
+    const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage(null);
     setLoading(true);
-
+  
     try {
       const formData = new FormData();
       formData.append('username', username);
       formData.append('email', email);
-      console.log("Before appending image",formData);
-      // If a new profile picture is selected, append it, else send the current one
-      if (profile_image) {
-        formData.append('profile_image', profile_image); // Send new profile picture
-      } else {
-        // Send existing profile image (no need to append the image if it isn't changing)
-        formData.append('profile_image', user?.profile_image || ''); // Send current image
+      formData.append('bio', bio);
+  
+      // Append the image ONLY if a new file is selected
+      if (profile_image && profile_image instanceof File) {
+        formData.append('profile_image', profile_image);
       }
-      console.log("after appending the image",formData);
-      // Send update request to the backend
+  
+      console.log("Final FormData values:");
+      for (let pair of formData.entries()) {
+        console.log(pair[0], pair[1]);
+      }
+  
       const data = await patchData('/update-profile/', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-      console.log("The data due to response",data);
-      // Update context with new user data
+  
       updateUserState({
         ...user,
         username,
         email,
-        profile_image: profile_image ? preview : user.profile_image, // Update profilePic if new one is selected
+        bio,
+        profile_image: profile_image instanceof File ? URL.createObjectURL(profile_image) : user.profile_image,
       });
-
+  
       setMessage({ type: 'success', text: 'Profile updated successfully!' });
-      nav("/profile"); // Redirect to profile page after successful update
+      nav("/profile");
       setLoading(false);
     } catch (error) {
       setMessage({ type: 'error', text: 'An error occurred while updating the profile.' });
       setLoading(false);
-      console.log(error);
+      console.error("Axios Error:", error);
     }
   };
 
@@ -106,6 +108,19 @@ const EditProfile = () => {
         </div>
 
         <div className="mb-3">
+          <label htmlFor="email" className="form-label">Bio:</label>
+          <input
+            type="bio"
+            className="form-control"
+            id="bio"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+            required
+          />
+        </div>
+
+
+        <div className="mb-3">
           <label htmlFor="profilePic" className="form-label">Profile Picture:</label>
           <input
             type="file"
@@ -125,10 +140,17 @@ const EditProfile = () => {
             </div>
           )}
         </div>
-
         <button type="submit" className="btn btn-primary" disabled={loading}>
-          {loading ? 'Updating...' : 'Update Profile'}
+          {loading ? (
+            <>
+              <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Updating...
+            </>
+          ) : (
+            "Update Profile"
+          )}
         </button>
+
       </form>
     </div>
   );
