@@ -59,7 +59,7 @@ const Home = () => {
         )
         .catch((error) => {
                       setLoading(false);
-           console.error('Error fetching products:', error));
+           
            setError("Failed to load items for "+${filter});        
    }
 };
