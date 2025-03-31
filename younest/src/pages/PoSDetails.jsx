@@ -282,11 +282,13 @@ const PoSDetails = () => {
             <div className="container-fluid recomendation-container my-2 py-2">
               <h2>You might also like</h2>
 
-              <div className="container-fluid recommended-products">
+              <div className="row">
                 {recommendedProducts.length > 0 ? (
                   recommendedProducts.map((recommendedProduct) => (
                     
-                      <PoSCard key={recommendedProduct.id} p={recommendedProduct} />
+                      <div className="pos-grid">
+                        <div className="col"><PoSCard key={recommendedProduct.id} p={recommendedProduct} /></div>
+                      </div>
                    
                   ))
                 ) : (
