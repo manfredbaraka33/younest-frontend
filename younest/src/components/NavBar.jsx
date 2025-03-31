@@ -1,12 +1,18 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import "../css/Navbar.css";
 import { FaBars } from "react-icons/fa";
 import { useAuth } from "../contexts/AuthContext";
 import NotificationBell from "./NotificationBell";
 
 
+
 function NavBar({ toggleSidebar, setIsSidebarOpen }) {
   const { user } = useAuth();
+  const nav = useNavigate();
+  if(user === null){
+    window.alert("Token Expired login again!");
+    nav("/login");
+  }
 
   return (
     <nav className="nav-bar">
