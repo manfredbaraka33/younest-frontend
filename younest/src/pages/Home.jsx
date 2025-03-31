@@ -17,10 +17,12 @@ const Home = () => {
    useEffect(() => {
      const loadpos = async () => {
        try {
+         setLoading(true); 
          const pos = await getProductsOrServices();
+         setLoading(false);
          setPoS(pos);
        } catch (err) {
-        
+         setLoading(false);
          setError("Failed to load items...");
        } finally {
          setLoading(false);
@@ -36,10 +38,13 @@ const Home = () => {
 
    const handleFilterSelect = (filter) => {
     setSelectedFilter(filter);  // Update active filter
+    setPoS([]);  
+    setLoading(true);  
     fetch(`https://younestapi.publicvm.com/api/filter-products/?category=${filter}`)
         .then((response) => response.json())
         .then((data) => 
         {
+          setLoading(false);
           setPoS(data.products);
           console.log(data)
           console.log(data.products)
@@ -52,7 +57,11 @@ const Home = () => {
           }
         }
         )
-        .catch((error) => console.error('Error fetching products:', error));
+        .catch((error) => {
+                      setLoading(false);
+           console.error('Error fetching products:', error));
+           setError("Failed to load items for "+${filter});        
+   }
 };
 
 const [searchQuery, setSearchQuery] = useState("");
@@ -70,17 +79,24 @@ const handleKeyDown = (e) => {
 
  
 const handleSearch = () => {
+  setLoading(true);
+  setPoS([]); 
   setLen(true);
   setSelectedFilter('All')
   if (searchQuery.trim() !== "") {
-    fetch(`https://13.60.222.132/api/search/?query=${searchQuery}`)
+    fetch(`https://younestapi.publicvm.com/api/search/?query=${searchQuery}`)
       .then((response) => response.json())
       .then((data) => {
         // Updating the state with the search results
+        setLoading(false); 
         setPoS(data.results);  
         setLe(data.results.length)
       })
-      .catch((error) => console.error("Error searching:", error));
+      .catch((error) =>{
+         setLoading(false);
+         setError("Failed to search items for "+${searchQuery});
+         console.error("Error searching:", error));
+  }
   }
 };
 
@@ -111,7 +127,14 @@ const handleSearch = () => {
 
        <div className="row">
        {loading ? (
-        <div className="loading">Loading...</div>
+        <div className="loading d-flex align-items-center">
+          
+              <div className="spinner-border spinner-border-sm" role="status">
+                <span className="sr-only"></span>
+              </div>
+              <span className="ms-2">Loading data...</span>
+      
+        </div>
       ) : (
           !len ? (<div style={{margin:"20px"}}>No results found for {flt}</div>
 
