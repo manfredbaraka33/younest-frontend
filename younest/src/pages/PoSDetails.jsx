@@ -189,7 +189,7 @@ const PoSDetails = () => {
       
       {product && (
         <>
-          <h6> <Link to="/" classname="mx-3"><FaArrowLeft className='mb-2'/></Link>
+          <h6> <Link to="/" className="mx-4"><FaArrowLeft /></Link>
             {product.name} by{' '}
             <Link className="" style={{ textDecoration: 'none' }} to={`/shop/${product.shop?.id}`}>
               {product.shop?.name || ''}
