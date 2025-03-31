@@ -60,7 +60,7 @@ const Home = () => {
         .catch((error) => {
                       setLoading(false);
            
-           setError("Failed to load items for "+${filter});        
+           setError(`Failed to load items for ${filter}`);        
    }
 };
 
@@ -73,7 +73,7 @@ const handleSearchChange = (e) => {
     // Handle 'Enter' key press
 const handleKeyDown = (e) => {
       if (e.key === 'Enter') {
-          handleSearch(); // Trigger the search if Enter is pressed
+          handleSearch(); 
       }
   };
 
@@ -87,15 +87,13 @@ const handleSearch = () => {
     fetch(`https://younestapi.publicvm.com/api/search/?query=${searchQuery}`)
       .then((response) => response.json())
       .then((data) => {
-        // Updating the state with the search results
         setLoading(false); 
         setPoS(data.results);  
         setLe(data.results.length)
       })
       .catch((error) =>{
          setLoading(false);
-         setError("Failed to search items for "+${searchQuery});
-         console.error("Error searching:", error));
+         setError(`Failed to search items for ${searchQuery}`);        
   }
   }
 };
