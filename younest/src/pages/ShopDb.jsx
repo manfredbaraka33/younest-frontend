@@ -106,7 +106,7 @@ const ShopDb = () => {
     return (
         <div className="container mt-5 p-3">
              
-            <center><Link to="/shop/${shopId}"><h4 className='bg-primary text-light rounded p-2'>{shopData} Analytics</h4></Link></center>
+            <center><Link to={`/shop/${shopId}`}><h4 className='bg-primary text-light rounded p-2'>{shopData} Analytics</h4></Link></center>
             {kpis && (
                 <center>
                     <div className="kpis row">
