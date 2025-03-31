@@ -12,7 +12,7 @@ const AddForSale = () => {
     price: 0,    
     description: '',
     location: '',
-    contact:'', 
+    contact:'',    
   });
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState(null);
