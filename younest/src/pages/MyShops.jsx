@@ -12,18 +12,7 @@ const MyShops = () => {
   const { user } = useAuth(); // Access the user from AuthContext
   const navigate = useNavigate();
   
-  // useEffect(() => {
-  //   const fetchShops = async () => {
-      
-  //       try {
-  //         const response = await axiosService.get('/user-shops/');
-  //         setShops(response.data);
-  //       } catch (error) {
-  //         console.error('Error fetching shops:', error);
-  //       }
-  //   };
-  //   fetchShops();
-  // }, [user]);
+ 
 
   useEffect(() => {
     const fetchShops = async () => {
