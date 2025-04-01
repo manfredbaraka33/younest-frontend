@@ -352,10 +352,17 @@ const PoSDetails = () => {
                   <select className='form-control' name="category" value={product.category} 
                   onChange={handleInputChange}
                   >
-                  <option value="">Select Category</option>
                   <option value="food">Food</option>
-                  <option value="bedings">Bedings</option>
+                  <option value="houseware">Houseware</option>
                   <option value="electronics">Electronics</option>
+                  <option value="other">Other</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="kitchen">Kitchen</option>
+                  <option value="banking">Banking</option>
+                  <option value="mobile money">Mobile Money</option>
+                  <option value="recreation">Recreation</option>
+                  <option value="body care">Body care</option>
+                  <option value="clothing">Clothing</option>
                   </select>
                 </div>
                 <div className="mb-3">
