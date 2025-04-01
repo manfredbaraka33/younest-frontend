@@ -547,7 +547,7 @@ const PoSDetails = () => {
       setProduct(updated);  // Update local product state
       alert("Product updated successfully!");
       setIsModalOpen(false);
-      navigate(`/pos/${posId}`);
+      // navigate(`/pos/${posId}`);
     } catch (err) {
       console.error("Failed to update product:", err);
       alert("Failed to update product. Check your internet connection and try again!");
