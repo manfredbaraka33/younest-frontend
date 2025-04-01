@@ -544,7 +544,10 @@ const PoSDetails = () => {
       const updated = await patchData(`/pos/${posId}/update/`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-      setProduct(updated);  // Update local product state
+       // Re-fetch full product details
+      const updatedFullProduct = await getDetails();
+      setProduct(updatedFullProduct);
+      //setProduct(updated);  // Update local product state
       alert("Product updated successfully!");
       setIsModalOpen(false);
       // navigate(`/pos/${posId}`);
