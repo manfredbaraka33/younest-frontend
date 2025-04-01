@@ -15,6 +15,7 @@ import PoSCard from "../components/PoSCard";
 
 const PoSDetails = () => {
   const [loading, setLoading] = useState(false);
+  const [loading2, setLoading2] = useState(false);
   const { posId } = useParams();
   const [error, setError] = useState(null);
   const [product, setProduct] = useState(null);
@@ -50,14 +51,14 @@ const PoSDetails = () => {
   useEffect(() => {
     getProductRecommendations();
     const loadPosDetails = async () => {
-      setLoading(true);
+      setLoading2(true);
       try {
         const posDetails = await getDetails();
         setProduct(posDetails);
       } catch (err) {
         setError("Failed to load items...");
       } finally {
-        setLoading(false);
+        setLoading2(false);
       }
     };
 
@@ -114,14 +115,10 @@ const PoSDetails = () => {
       formData.append("description", product.description);
       formData.append("category", product.category);
 
-      
       // Now append the images
       images.forEach((image) => {
         formData.append('images', image);
       });
-    
-      
-    
       try {
         
         const updated = await patchData(`/pos/${posId}/update/`, formData, {
@@ -137,7 +134,7 @@ const PoSDetails = () => {
       } catch (err) {
         setLoading(false);
         console.error("Failed to update product:", err);
-        alert("Failed to update product.");
+        alert("Failed to update product. Check your internet connection and try again!");
       }
     };
     
@@ -413,6 +410,8 @@ const PoSDetails = () => {
             <button className="btn btn-primary" onClick={handleUpdate} disabled={loading}>
               {loading ? "Saving..." : "Save Changes"}
             </button>
+              {loading && <p className="text-center text-primary">Updating product...</p>}
+
             </div>
           </div>
         </div>
