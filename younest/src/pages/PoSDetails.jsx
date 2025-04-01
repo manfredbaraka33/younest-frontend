@@ -107,6 +107,7 @@ const PoSDetails = () => {
        
   
       const handleUpdate = async () => {
+      setLoading(true);  
       const formData = new FormData();
       formData.append("name", product.name);
       formData.append("price", product.price);
@@ -122,14 +123,15 @@ const PoSDetails = () => {
       
     
       try {
-        setLoading(true);
+        
         const updated = await patchData(`/pos/${posId}/update/`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
         setLoading(false);
+        alert("Product updated successfully!");
         setIsModalOpen(false);
         navigate(`/pos/${posId}`);
-        alert("Product updated successfully!");
+
       } catch (err) {
         setLoading(false);
         console.error("Failed to update product:", err);
@@ -414,10 +416,11 @@ const PoSDetails = () => {
               <button className="btn btn-primary" onClick={handleUpdate}>
                  {loading ? (
                     <div className="spinner-border text-primary" role="status">
-                      <span className="sr-only">Saving...</span>
+                      <span className="sr-only"></span>
+                       <span className="">Saving...</span>
                     </div>
                   ) : (
-                    <h2>Save Changes</h2>
+                    <span>Save Changes</span>
                   )}
                             
               </button>
