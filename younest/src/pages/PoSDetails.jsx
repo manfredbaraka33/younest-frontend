@@ -127,6 +127,8 @@ const PoSDetails = () => {
         const updated = await patchData(`/pos/${posId}/update/`, formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
+        // Update state with new product details
+        setProduct(updated);
         setLoading(false);
         alert("Product updated successfully!");
         setIsModalOpen(false);
@@ -300,13 +302,8 @@ const PoSDetails = () => {
                 )}
               </div>
             </div>
-
-
         </>
       )}
-
-
-
 
 {/* Bootstrap Modal */}
 <div
@@ -413,17 +410,9 @@ const PoSDetails = () => {
               >
                 Close
               </button>
-              <button className="btn btn-primary" onClick={handleUpdate}>
-                 {loading ? (
-                    <div className="spinner-border text-primary" role="status">
-                      <span className="sr-only"></span>
-                       <span className="">Saving...</span>
-                    </div>
-                  ) : (
-                    <span>Save Changes</span>
-                  )}
-                            
-              </button>
+            <button className="btn btn-primary" onClick={handleUpdate} disabled={loading}>
+              {loading ? "Saving..." : "Save Changes"}
+            </button>
             </div>
           </div>
         </div>
